@@ -1,5 +1,5 @@
 <script>
-  export let imageUrl = '/m3.png'
+  export let imageUrl = '/banner-盐焗鸡1170X750.png'
   export let title = '一个非常高级的标题'
   export let text = '和一段文字'
   export let buttonLink = ''
@@ -12,8 +12,8 @@
 
 <div class="banner" style="background-image: url('{imageUrl}')">
   <div class="banner-content">
-    <h1>{title}</h1>
-    <p>{text}</p>
+    <!-- <h1>{title}</h1> -->
+    <!-- <p>{text}</p> -->
     <!-- <a href={buttonLink}>{buttonText}</a> -->
   </div>
 </div>
