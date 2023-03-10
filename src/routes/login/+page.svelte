@@ -8,18 +8,18 @@
 </script>
 
 <main>
-  <h1>Login</h1>
+  <h1>登录</h1>
   <form method="POST" action="?/login">
     <label>
-      Username:
-      <input type="text" name="username" bind:value={username} />
+      用户名: <input type="text" name="username" bind:value={username} />
     </label>
     <label>
-      Password:
-      <input type="password" name="password" bind:value={password} />
+      密码: <input type="password" name="password" bind:value={password} />
     </label>
-    <button>Login</button>
-	<button formaction="?/register">Register</button>
+    <div class="">
+      <button>登录</button>
+      <button formaction="?/register">注册</button>
+    </div>
   </form>
 </main>
 

@@ -19,21 +19,25 @@ export const load = async ({ url, params, fetch }) => {
     //   };
 }
 
+let db = {
+    getUser: async (/** @type {any} */ email) => 'zhang3',
+    createSession: async (/** @type {any} */ user) => {
+        return 'zhang3'
+    }
+}
 /** @type {import('./$types').Actions} */
 export const actions = {
-    login: async ({ url, request }) => {
-        console.log('====== login ======');
+    login: async ({ cookies, request }) => {
         const data = await request.formData();
-        const username = data.get('username');
+        const email = data.get('email');
         const password = data.get('password');
-        // return fail(400, { incorrect: true });
-        if (username=='admin'&&password=='123') {
-            throw redirect(303, '/upload')
-        }
+
+        const user = await db.getUser(email);
+        cookies.set('sessionid', await db.createSession(user));
+
+        return { success: true };
     },
     register: async (event) => {
-        console.log('====== register ======');
-        console.log(event);
-    },
-
+        // TODO register the user
+    }
 };

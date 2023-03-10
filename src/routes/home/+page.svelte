@@ -54,10 +54,15 @@
         <Card />
       </div>
     {:else}
-      <!-- svelte-ignore a11y-media-has-caption -->
-      <video class="h-60 w-80" controls>
-        <source src="/bee.mp4" type="video/mp4" />
-      </video>
+      <div class="">
+        <div class="">农场1</div>
+        <div class="">
+          <!-- svelte-ignore a11y-media-has-caption -->
+          <video class="h-60 w-80" controls>
+            <source src="/bee.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
     {/if}
   </div>
 </div>
