@@ -25,6 +25,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/adapter-node": "^1.2.2",
     "sequelize": "^6.29.1",
     "sqlite3": "^5.1.4"
   }

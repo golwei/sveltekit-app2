@@ -1,4 +1,8 @@
 <script>
+  /** @type {import('./$types').PageData} */
+  export let data
+  /** @type {import('./$types').ActionData} */
+  export let form
   let username = ''
   let password = ''
 
@@ -7,21 +11,30 @@
   }
 </script>
 
-<main>
-  <h1>登录</h1>
-  <form method="POST" action="?/login">
-    <label>
-      用户名: <input type="text" name="username" bind:value={username} />
-    </label>
-    <label>
-      密码: <input type="password" name="password" bind:value={password} />
-    </label>
-    <div class="">
-      <button>登录</button>
-      <button formaction="?/register">注册</button>
-    </div>
-  </form>
-</main>
+<!--  -->
+
+{#if form?.success}
+  <!-- this message is ephemeral; it exists because the page was rendered in
+       response to a form submission. it will vanish if the user reloads -->
+  <p>Successfully logged in! Welcome back, {data.user.name}</p>
+{:else}
+  <main>
+    <h1>登录</h1>
+    <form method="POST" action="?/login">
+      {#if form?.missing}<p class="error">The email field is required</p>{/if}
+      <label>
+        用户名: <input type="text" name="username" bind:value={username} />
+      </label>
+      <label>
+        密码: <input type="password" name="password" bind:value={password} />
+      </label>
+      <div class="">
+        <button>登录</button>
+        <button formaction="?/register">注册</button>
+      </div>
+    </form>
+  </main>
+{/if}
 
 <style>
   main {

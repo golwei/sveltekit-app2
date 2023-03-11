@@ -1,35 +1,27 @@
 import { fail, redirect } from '@sveltejs/kit';
-/** @type {import('@sveltejs/kit').Load} */
-export const load = async ({ url, params, fetch }) => {
-    //   const resourceUrl = `api`;
-    //   const res = await fetch(resourceUrl);
-
-    //   if (res.ok) {
-    //     return {
-    //       status: res.status,
-    //       props: {
-    //          propName: await res.json()
-    //       }
-    //     };
-    //   }
-
-    //   return {
-    //     status: res.status,
-    //     error: new Error(`Could not load url`)
-    //   };
+/** @type {import('./$types').PageServerLoad} */
+export const load = async ({ url, params, fetch, cookies }) => {
+    console.log('会话id');
+    console.log(cookies.get('sessionid'));
+    console.log('会话id');
+    let user = { uname: 'user1' }
+    return { user }
 }
 
 let db = {
     getUser: async (/** @type {any} */ email) => 'zhang3',
-    createSession: async (/** @type {any} */ user) => {
-        return 'zhang3'
-    }
+    createSession: async (/** @type {any} */ user) => `seessionid${user}`
 }
+
 /** @type {import('./$types').Actions} */
 export const actions = {
     login: async ({ cookies, request }) => {
         const data = await request.formData();
-        const email = data.get('email');
+        const email = data.get('username');
+        if (!email) {
+            return fail(400, { email, missing: true });
+        }
+        console.log('email-->', email);
         const password = data.get('password');
 
         const user = await db.getUser(email);
