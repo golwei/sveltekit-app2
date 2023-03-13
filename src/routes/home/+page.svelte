@@ -44,11 +44,11 @@
   <!-- <div class="">
     <div
       class="card card-hover p-1 h-40 w-80"
-      style="background-image: url('https://192.168.1.22:2015/m1.png')"
+      style="background-image: url('https://198.52.117.216:5173/m1.png')"
     />
   </div> -->
   <div class="flex justify-center p-2">
-    <!-- <Avatar src='https://192.168.1.22:2015/m1.png' width='w-80'  rounded='rounded-xl' border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" /> -->
+    <!-- <Avatar src='https://198.52.117.216:5173/m1.png' width='w-80'  rounded='rounded-xl' border="border-4 border-surface-300-600-token hover:!border-primary-500" cursor="cursor-pointer" /> -->
     {#if tabSet == 1}
       <div class="flex justify-center bg-white p-1">
         <Card />
